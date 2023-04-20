@@ -1,4 +1,17 @@
 c = float(input('Digite o valor em °C '))
-f = c * 1.8 + 32
-k = c + 273
-print(f'Conversão °C °F K\n{c:.2f}°C\n{f:.2f}°F\n{k:.2f}K')
+f = float(input('Digite o valor em °F '))
+k = float(input('Digite o valor em Kelvin '))
+
+c_p_f = c * 1.8 + 32
+c_p_k = c + 273
+
+f_p_c = f - 32 / 1.8
+f_p_k = f - 32 * 5/9 + 273
+
+k_p_c = k - 273
+k_p_f = k - 273 * 1.8 + 32
+
+print(f'\nConversão °C °F K\n{c}°C\n{c_p_f:.2f}°F\n{c_p_k:.2f}K')
+print(f'\nConversão °F °C K\n{f}°F\n{f_p_c:.2f}°C\n{f_p_k:.2f}K')
+print(f'\nConversão  K °C °F\n{k}°F\n{k_p_c:.2f}°C\n{k_p_f:.2f}K')
+
