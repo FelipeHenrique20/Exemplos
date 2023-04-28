@@ -1,5 +1,5 @@
-s = int(input('Digite o valor em segundos: '))
-h = ((s//3600) % 3600)
-m = ((s//60) % 60)
-s = ((s%60) % 60)
-print(f'{h}h:{m}m,{s}s')
+s = float(input('Digite o valor em segundos: '))
+h = s//3600
+m = ((s%3600) //60)
+s = ((s%3600) %60)
+print(f'H{h:.0f},m{m:.0f},s{s:.0f}')
