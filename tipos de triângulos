@@ -1,0 +1,15 @@
+a = float(input('Valor do lado A: '))
+b = float(input('Valor do lado B: '))
+c = float(input('Valor do lado C: '))
+
+if a> b+c or b> a+c or c> a+b:
+    print('Não é um triangulo')
+
+elif a==b and a==c:
+    print('Triangulo equilatero')
+
+elif a==b or b==c:
+    print('Triangulo isóceles')
+
+elif a!=b and b!=c:
+    print('Triangulo escaleno')
