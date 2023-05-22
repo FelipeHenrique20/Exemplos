@@ -1,0 +1,47 @@
+while True:
+    print("Escolha uma opção:")
+    print("1. Hexadecimal para Binário")
+    print("2. Binário para Hexadecimal")
+    print("3. Hexadecimal para Decimal")
+    print("4. Decimal para Hexadecimal")
+    print("5. Decimal para Binário")
+    print("6. Binário para Decimal")
+    print("0. Sair")
+
+    option = input("Opção: ")
+
+    if option == '0':
+        break
+
+    elif option == '1':
+        hex_num = input("Digite o número hexadecimal: ")
+        bin_num = bin(int(hex_num, 16))[2:]
+        print("O número binário é:", bin_num)
+
+    elif option == '2':
+        bin_num = input("Digite o número binário: ")
+        hex_num = hex(int(bin_num, 2))[2:]
+        print("O número hexadecimal é:", hex_num)
+
+    elif option == '3':
+        hex_num = input("Digite o número hexadecimal: ")
+        dec_num = int(hex_num, 16)
+        print("O número decimal é:", dec_num)
+
+    elif option == '4':
+        dec_num = int(input("Digite o número decimal: "))
+        hex_num = hex(dec_num)[2:]
+        print("O número hexadecimal é:", hex_num)
+
+    elif option == '5':
+        dec_num = int(input("Digite o número decimal: "))
+        bin_num = bin(dec_num)[2:]
+        print("O número binário é:", bin_num)
+
+    elif option == '6':
+        bin_num = input("Digite o número binário: ")
+        dec_num = int(bin_num, 2)
+        print("O número decimal é:", dec_num)
+
+    else:
+        print("Opção inválida. Por favor, tente novamente.")
