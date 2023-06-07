@@ -1,0 +1,39 @@
+while True:
+    print('\nEscolha uma opçâo:')
+    print('1, Adição')
+    print('2, Subtração')
+    print('3. Multiplicação')
+    print('4, Divisão')
+    print('5, Sair')
+
+    opção = input('Digite a opção: ')
+
+    if opção == '1':
+        n1 = int(input('Digite o primeiro valor: '))
+        n2 = int(input('Digite o segundo valor: '))
+        soma = n1+n2
+        print(f'A soma entre {n1} e {n2} é igual a {soma}')
+
+    elif opção == '2':
+        n1 = int(input('Digite o primeiro valor: '))
+        n2 = int(input('Digite o segundo valor: '))
+        subtracao = n1-n2
+        print(f'A subtração entre {n1} e {n2} é igua a {subtracao}')
+
+    elif opção == '3':
+        n1 = int(input('Digite o primeiro valor: '))
+        n2 = int(input('Digite o segundo valor: '))
+        mult = n1*n2
+        print(f'A multiplicação entre {n1} e {n2} é igual a {mult}')
+
+    elif opção == '4':
+        n1 = int(input('Digite o primeiro valor: '))
+        n2 = int(input('Digite o segundo valor: '))
+        div = n1/n2
+        print(f'A divisão entre {n1} e {n2} é igual a {div}')
+
+    elif opção == '5':
+        break
+    
+    else:
+        print('Opção invalida, Digite um número entre 1 e 5')
