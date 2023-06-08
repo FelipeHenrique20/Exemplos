@@ -1,0 +1,23 @@
+primerio_termo = int(input('Digite o primeiro termo PA: '))
+razao = int(input('Digite a razão de PA: '))
+termo = primerio_termo
+i = 1
+
+while i<=10:
+    print(termo)
+    termo+=razao
+    i+=1
+print('Fim')
+
+r = str(input('Voçê deseja continuar [S/N]: ')).strip().upper()[0]
+
+while r == 'S':
+    termoc = int(input('Voçê quer mais quantos termos: '))
+    i = 1
+    while i<=termoc:
+        print(termo)
+        termo+=razao
+        i+=1
+    r = str(input('Voçê deseja continuar [S/N]: ')).strip().upper()[0]
+
+print('Fim')
