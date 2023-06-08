@@ -1,0 +1,23 @@
+n = int(input('Digite o valor de Fibonacci: '))
+
+if n<=0:
+    print('Invalido')
+
+elif n == 1:
+    print('0')
+
+else:
+    pfib = 0
+    sfib = 1
+    i = 2
+    print(pfib)
+    print(sfib)
+
+    while i<n:
+        fibc = pfib + sfib
+        print(fibc)
+
+        pfib = sfib
+        sfib = fibc
+
+        i+=1
