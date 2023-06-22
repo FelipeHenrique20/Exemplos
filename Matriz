@@ -1,0 +1,31 @@
+import random
+
+lists = []
+
+for x in range(2):
+    list = []
+    for i in range(11):
+        line = []
+        for j in range(17):
+            line.append(random.randint(1, 20))
+        list.append(line)
+    lists.append(list)
+
+A, B = lists
+ 
+C =[[0]*11 for y in range(11)]
+
+for i in range(11):
+    for j in range(11):
+       for k in range(17):
+          C[i][j] += A[i][k]*B[j][k]
+
+print("Matriz A: ")
+for m in A:
+     print(m) 
+print("Matriz B: ")
+for m in B:
+    print(m)
+print("MatrizC: ")
+for m in C:
+    print(m)
