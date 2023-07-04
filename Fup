@@ -8,7 +8,6 @@ def imprimir_nome_matricula():
 
 def funcao_questao_2():
     def matriz():
-
         M = [[random.randint(0, 100) for _ in range(58)] for _ in range(35)]
         maiores_valores = []
         menores_valores = []
@@ -20,7 +19,7 @@ def funcao_questao_2():
             maiores_valores.append(maior_valor)
             menores_valores.append(menor_valor)
 
-        for k, valor in enumerate(maiores_valores if k % 2 == 0 else menores_valores):
+        for k, valor in enumerate(maiores_valores):
             if k % 2 == 0:
                 print(f"Maior valor da coluna {k}: {valor}")
             else:
