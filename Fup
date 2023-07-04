@@ -1,0 +1,126 @@
+import random
+
+def imprimir_nome_matricula():
+    nome = input("Digite seu nome completo: ")
+    matricula = input("Digite sua matrícula: ")
+    print("Nome:", nome)
+    print("Matrícula:", matricula)
+
+def funcao_questao_2():
+    def matriz():
+        # Criar uma matriz M de tamanho 35x58
+        M = [[random.randint(0, 100) for _ in range(58)] for _ in range(35)]
+
+        # Inicializar listas vazias para armazenar os maiores e menores valores de cada coluna
+        maiores_valores = []
+        menores_valores = []
+
+        # Preencher as listas com os maiores e menores valores de cada coluna
+        for j in range(58):
+            coluna = [M[i][j] for i in range(35)]
+            maior_valor = max(coluna)
+            menor_valor = min(coluna)
+            maiores_valores.append(maior_valor)
+            menores_valores.append(menor_valor)
+
+        # Imprimir o maior valor se o índice da coluna for par, e o menor valor se for ímpar
+        for k, valor in enumerate(maiores_valores if k % 2 == 0 else menores_valores):
+            if k % 2 == 0:
+                print(f"Maior valor da coluna {k}: {valor}")
+            else:
+                print(f"Menor valor da coluna {k}: {valor}")
+
+    matriz()
+
+def funcao_questao_3():
+    def dicionario():
+        num_discentes = int(input("Digite o número de discentes a cadastrar: "))
+
+        discentes = {}
+        maior_nome = ""
+        maior_matricula = ""
+
+        for i in range(num_discentes):
+            print(f"\nCadastro do discente {i+1}:")
+            nome = input("Digite o primeiro nome: ")
+            idade = int(input("Digite a idade: "))
+            matricula = input("Digite a matrícula: ")
+            semestre = int(input("Digite o semestre: "))
+            curso = input("Digite o nome do curso: ")
+
+            discentes[matricula] = {
+                'nome': nome,
+                'idade': idade,
+                'semestre': semestre,
+                'curso': curso
+            }
+
+            if len(nome) > len(maior_nome):
+                maior_nome = nome
+                maior_matricula = matricula
+            elif len(nome) == len(maior_nome) and matricula > maior_matricula:
+                maior_matricula = matricula
+
+        print("\nInformações dos discentes:")
+        for matricula, info in discentes.items():
+            print(f"Nome: {info['nome']}, Idade: {info['idade']}")
+
+        print("\nInformações do discente com maior nome:")
+        print(f"Nome: {discentes[maior_matricula]['nome']}")
+        print(f"Idade: {discentes[maior_matricula]['idade']}")
+        print(f"Matrícula: {maior_matricula}")
+        print(f"Semestre: {discentes[maior_matricula]['semestre']}")
+        print(f"Curso: {discentes[maior_matricula]['curso']}")
+
+    dicionario()
+
+def funcao_questao_4():
+    def arquivo():
+        try:
+            with open("entrada.txt", "r") as file:
+                conteudo = file.read()
+
+                vogais = 0
+                consoantes = 0
+
+                for char in conteudo:
+                    if char.isalpha():
+                        if char.lower() in ['a', 'e', 'i', 'o', 'u']:
+                            vogais += 1
+                        else:
+                            consoantes += 1
+
+                print("Quantidade de vogais:", vogais)
+                print("Quantidade de consoantes:", consoantes)
+
+        except FileNotFoundError:
+            print("O arquivo 'entrada.txt' não foi encontrado.")
+
+    arquivo()
+
+def exibir_menu():
+    print("Menu:")
+    print("0. Sair do Programa")
+    print("1. Imprimir seu nome completo e sua matrícula")
+    print("2. Chamar a função da Questão 2")
+    print("3. Chamar a função da Questão 3")
+    print("4. Chamar a função da Questão 4")
+
+    while True:
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "0":
+            print("Programa finalizado.")
+            break
+        elif opcao == "1":
+            imprimir_nome_matricula()
+        elif opcao == "2":
+            funcao_questao_2()
+        elif opcao == "3":
+            funcao_questao_3()
+        elif opcao == "4":
+            funcao_questao_4()
+        else:
+            print("Opção inválida. Digite um número válido.")
+
+exibir_menu()
