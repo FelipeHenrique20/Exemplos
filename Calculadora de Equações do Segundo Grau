@@ -1,0 +1,32 @@
+import math
+
+def funcao_quadratica(a,b,c):
+    delta = ((b**2) - 4*a*c)
+
+    if delta>0:
+        x1 = (-b + math.sqrt(delta)) / (2*a)
+        x2 = (-b - math.sqrt(delta)) / (2*a)
+        return x1, x2
+    elif delta == 0:
+        x1 = (-b)/(2*a)
+        return x1, x1
+    else:
+        return None, None
+
+while True:
+    a = int(input('Digite o coeficiente a: '))
+    b = int(input('Digite o coeficiente b: '))
+    c = int(input('Digite o coeficiente c: '))
+
+    x1, x2 = funcao_quadratica(a, b, c)
+
+    if x1 is not None:
+        print(f'Para a equação {a}x^2 + {b}x + {c} = 0, as raízes são: {x1} e {x2}')
+    else:
+        print(f'Para a equação {a}x^2 + {b}x + {c} = 0, não há raízes reais')
+
+    continuar = input('Você quer inserir mais coeficientes? (s/n): ')
+    if continuar.lower() != 's':
+        break
+
+print('Progama encerrado!')
