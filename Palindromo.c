@@ -1,57 +1,35 @@
 #include <stdio.h>
 #include <string.h>
 
-//Fução para deixar em maiusculo
-void upper(char str[]){
-    int i = 0;
+// Função que normaliza e verifica palindromo ao mesmo tempo
+int ehPalindromo(const char str[]) {
+    int i = 0, j = strlen(str) - 1;
 
-    while (str[i] != '\0' && str[i] != '\n'){
-        if (str[i] >= 'a' && str[i] <= 'z'){
-            str[i] = str[i] - 32;
-        }
+    while (i < j) {
+        // Ignorar espaços
+        while (i < j && str[i] == ' ') i++;
+        while (i < j && str[j] == ' ') j--;
+
+        // Converter para maiusculas e comparar
+        char charEsq = (str[i] >= 'a' && str[i] <= 'z') ? str[i] - 32 : str[i];
+        char charDir = (str[j] >= 'a' && str[j] <= 'z') ? str[j] - 32 : str[j];
+
+        if (charEsq != charDir)
+            return 0;
+
         i++;
+        j--;
     }
-}
-
-//Função para remover espaços
-void strip(char str[]){
-    int tam = strlen(str);
-    int pos = 0;
-
-    for (int i = 0; i < tam; i++){
-        if (str[i] == ' ') {
-            continue;
-        }
-        str[pos] = str[i];
-        pos++;
-    }
-    str[pos] = '\0';
-}
-
-//Função palindromo
-void palindromo(char str[]){
-    int tam = strlen(str);
-    int ehPalindromo = 1;
-
-    for (int i = 0; i < tam; i++){
-        if (str[i] != str[tam - 1 - i]){
-            ehPalindromo = 0; // Se encontrar diferença, não é palíndromo
-            break;
-        }
-    }
-
-    if (ehPalindromo)
-        printf("A string e um palindromo\n");
-    else
-        printf("A string nao e um palindromo\n");
+    return 1;
 }
 
 int main() {
     char str[] = "Socorram me subi no onibus em marrocos";
 
-    upper(str);
-    strip(str);
-    palindromo(str);
+    if (ehPalindromo(str))
+        printf("A string e um palindromo\n");
+    else
+        printf("A string nao e um palindromo\n");
 
     return 0;
 }
